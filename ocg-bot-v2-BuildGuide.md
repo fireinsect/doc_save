@@ -12,18 +12,30 @@
 ## 2.机器人搭建以及插件安装
 新建文件夹（这个大家总归会知道的吧），任务管理栏使用cmd，使用cd指令进入新建的文件夹（这里也不多说了），在该文件夹下 使用 ```pip install nb-cli``` 指令安装nonebot脚手架
 > 注意：如果安装速度过慢，可以在末尾添加``` -i https://pypi.tuna.tsinghua.edu.cn/simple/```
-> 
->之后所有 pip install 指令都可以添加
-> 
-安装完脚手架，我们就可以搭建nonebot空壳，我们使用```nb create``` 指令来创建新机器人，我们需要勾选（空格选择，回车确定） fastapi、onebot v11、echo
+>
+> ![image](./assest/pic1.png)
+>
+> 之后所有 pip install 指令都可以添加
+>
+> 安装完脚手架，我们就可以搭建nonebot空壳，我们使用```nb create``` 指令来创建新机器人，我们需要勾选（空格选择，回车确定）onebot v11、 fastapi、echo
+>
+> ![image](./assest/pic2.png)
+>
+> ![image](./assest/pic3.png)
+>
+> ![image](./assest/pic4.png)
 
 这样，我们的机器人就创建成功了。
 
 接下来我们需要安装ocg-bot-v2插件来实现小蓝的功能哟~
 
-我们需要找到上一步创建的机器人的pyproject.toml文件存放的文件夹位置，并cd到该位置。
+我们需要找到上一步创建的机器人的pyproject.toml文件存放的文件夹位置，并cd到该位置：
 
-我们在此位置下使用安装指令：
+![image](./assest/pic5.png)
+
+> 这里框架给予了我们两条指令，第一条是进入你创建的机器人文件夹的指令，第二条是运行机器人的指令，这里我们先使用第一条。
+
+我们在此位置下使用安装指令（二选一）：
 
 #### 使用 nb-cli 安装
 在 nonebot2 项目的根目录下打开命令行, 输入以下指令即可安装
@@ -37,7 +49,13 @@ nb plugin install nonebot-plugin-ocgbot-v2
 pip install nonebot-plugin-ocgbot-v2
 ```
 
+具体如下（注意文件夹名不同）：
+
+![image](./assest/pic6.png)
+
 之后，我们就可以使用 nb run指令，运行机器人啦!
+
+![image](./assest/pic7.png)
 
 当然这里还有一些可能需要的配置，具体查看小蓝的github
 
@@ -94,8 +112,8 @@ cq在初次运行时会询问代理方式，我们使用```3.反向websocket代�
 **A:** 同Q1,不过在static下创建了cdb文件夹，并将ygo游戏的.cdb文件放入其中（先行卡也可以，不要改名）。
 
 
- 
+
 #### Q3:我机器人搭建成功，账号也连接上了机器人，为什么输入指令没用？
 
 **A:** nonebot框架默认指令前缀为/,也就是说，所有指令默认需要加上/才会有反应，需要修改请查询官网。
- 
+
