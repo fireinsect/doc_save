@@ -59,7 +59,7 @@ pip install nonebot-plugin-ocgbot-v2
 
 当然这里还有一些可能需要的配置，具体查看小蓝的github
 
-## 3.账号登录与连接
+## 3.账号登录与连接(CQHTTP已经启用，请转移到Lagrange.Core,使用流程类似，具体查看对应文档)
 在上面的步骤中，我们成功装配了机器人框架，但实际上，想要实现一个完整机器人，我们自然需要登录账号，让账号“变成”机器人号。因此我们需要下载 cqhttp进行账号登录。
 
 前往 https://github.com/Mrs4s/go-cqhttp > Releases，下载CQ-HTTP的对应操作系统的执行文件。
