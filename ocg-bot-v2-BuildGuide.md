@@ -59,40 +59,33 @@ pip install nonebot-plugin-ocgbot-v2
 
 当然这里还有一些可能需要的配置，具体查看小蓝的github
 
-## 3.账号登录与连接(CQHTTP已经弃用，请转移到Lagrange.Core,使用流程类似，具体查看对应文档)
+## 3.账号登录与连接(请转移到Lagrange.Core，cqhttp已无法使用)
 在上面的步骤中，我们成功装配了机器人框架，但实际上，想要实现一个完整机器人，我们自然需要登录账号，让账号“变成”机器人号。因此我们需要下载 cqhttp进行账号登录。
 
-前往 https://github.com/Mrs4s/go-cqhttp > Releases，下载CQ-HTTP的对应操作系统的执行文件。
+前往 https://github.com/LagrangeDev/Lagrange.Core/releases/tag/nightly 下载Lagrange的对应操作系统的执行文件。
 
-使用cd指令进入所下载的文件存放路径(已解压) Linux输入./cqhttp运行文件
+使用cd指令进入所下载的文件存放路径(已解压) Linux输入./Lagrange.OneBot 运行文件
 
 Windows直接运行文件
 
-cq在初次运行时会询问代理方式，我们使用```3.反向websocket代理``` 来实现qq机器人。之后在生成的config.yml中设置自己的qq号与密码来完成cq的部署。
+lagrange在初次运行时会先生成相关文件，我们需要打开两次。
+
+之后在生成的appsettings.json中配置相关信息（因为Lagrange支持扫码登录，所以可以不用配置账号以及密码）。
+
+```如果出现的二维码出现移位、扫不了的情况，可以打开同目录下生成的二维码图片进行扫码```
 
 此时我们需要修改反向代理的地址：
 
-修改同目录下生成的config.yml文件,修改：
-```yml
-- ws-reverse:
-      # 反向WS Universal 地址
-      # 注意 修改这里
-      universal: ws://127.0.0.1:8080/onebot/v11/ws
-      # 反向WS API 地址
-      api: ws://your_websocket_api.server
-      # 反向WS Event 地址
-      event: ws://your_websocket_event.server
-      # 重连间隔 单位毫秒
-      reconnect-interval: 3000
-      middlewares:
-        <<: *default # 引用默认中间件
-```
-重新运行,之后我们的bot上会显示连接成功的讯息，这就代表机器人部署成功了！
+修改配置文件的Port来修改端口，本教程默认端口8080。
 
-如果我们账号登录出现了 45 错误，那我们就可能需要配置sign服务器，我们可以在config.yml的sign下添加签名服务的地址，之后就可以实现登录。
->1.签名服务器搭建可以参考cqhttp下载地址下的教程信息，或者在同一目录下可能存在大佬公开的签名服务器地址，可以拿来直接使用。
->
->2.在本次搭建中，我们使用了默认服务端口8080，而实际上我们可以通过改变config.yml的代理端口以及在 .env文件下添加 port=xxx，来改变端口。
+
+**在appsettings.json文件中我们最主要修改的SignServerUrl这一项，在默认情况下这里是空缺的**
+
+**我们可以在lagrange.core项目下找到项目Telegram入口，简介里有对应Url**
+
+
+扫码运行后,我们的bot上会显示连接成功的讯息，这就代表机器人部署成功了！
+
 
 ## Q&A
 #### Q1:机器人搭建完后没有卡图怎么办？
